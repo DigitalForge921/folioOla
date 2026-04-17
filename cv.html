@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Ola Dev & Web - Développeur Full-Stack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF8C42;
+            --accent: #FFB366;
+            --secondary: #00D9FF;
+            --dark: #0a0e27;
+            --darker: #050812;
+            --text: #f5f5f5;
+            --text-secondary: #a0a0a0;
+            --border: #1a1f3a;
+            --gradient-main: linear-gradient(135deg, #FF8C42 0%, #FFB366 100%);
+            --gradient-dark: linear-gradient(135deg, #0a0e27 0%, #050812 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gradient-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                background: white;
+            }
+
+            .sidebar {
+                background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+            }
+
+            .main-content {
+                background: white;
+            }
+
+            .section-title {
+                color: var(--primary);
+            }
+
+            .divider {
+                background: var(--primary);
+            }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(10, 14, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 140, 66, 0.2);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 140, 66, 0.2);
+            min-height: 100vh;
+        }
+
+        /* ==================== SIDEBAR ==================== */
+        .sidebar {
+            background: linear-gradient(180deg, rgba(10, 14, 39, 0.9) 0%, rgba(5, 8, 18, 0.95) 100%);
+            border-right: 1px solid rgba(255, 140, 66, 0.1);
+            padding: 50px 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-image-container {
+            width: 220px;
+            height: 280px;
+            margin-bottom: 40px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 140, 66, 0.5);
+            box-shadow: 0 20px 50px rgba(255, 140, 66, 0.3);
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 0 20px 50px rgba(255, 140, 66, 0.3);
+            }
+            50% { 
+                box-shadow: 0 20px 60px rgba(255, 140, 66, 0.5);
+            }
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .sidebar h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .job-title {
+            text-align: center;
+            font-size: 12px;
+            color: var(--secondary);
+            margin-bottom: 35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.6;
+        }
+
+        .divider {
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-main);
+            margin: 0 auto 35px;
+            border-radius: 2px;
+        }
+
+        .sidebar-section {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-section h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+        }
+
+        .contact-info {
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .contact-info p {
+            margin-bottom: 14px;
+            word-break: break-word;
+        }
+
+        .contact-info strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 140, 66, 0.15);
+            border: 2px solid rgba(255, 140, 66, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-links a:hover {
+            background: var(--gradient-main);
+            color: var(--dark);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.4);
+            border-color: var(--primary);
+        }
+
+        .languages {
+            font-size: 12px;
+            width: 100%;
+        }
+
+        .language-item {
+            margin-bottom: 18px;
+        }
+
+        .language-item label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 140, 66, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 140, 66, 0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-main);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-content {
+            padding: 50px 50px;
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.7) 0%, rgba(5, 8, 18, 0.8) 100%);
+            overflow-y: auto;
+        }
+
+        .section {
+            margin-bottom: 45px;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+        }
+
+        .profile-text {
+            font-size: 13px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        /* Experience & Education Items */
+        .experience-item,
+        .education-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255, 140, 66, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:last-child,
+        .education-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .experience-item:hover {
+            padding-left: 10px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-details h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .item-date {
+            font-size: 11px;
+            color: var(--text-secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: rgba(255, 140, 66, 0.1);
+            padding: 4px 10px;
+            border-radius: 8px;
+        }
+
+        .item-company {
+            font-size: 12px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .item-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skill-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .skill-name i {
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 140, 66, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 140, 66, 0.2);
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--gradient-main);
+            border-radius: 4px;
+            transition: width 0.6s ease;
+        }
+
+        /* Certifications */
+        .cert-item {
+            background: rgba(255, 140, 66, 0.08);
+            border: 1px solid rgba(255, 140, 66, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-item:hover {
+            background: rgba(255, 140, 66, 0.12);
+            border-color: rgba(255, 140, 66, 0.4);
+            transform: translateX(5px);
+        }
+
+        .cert-name {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .cert-issuer {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 260px 1fr;
+            }
+
+            .sidebar {
+                padding: 40px 25px;
+            }
+
+            .profile-image-container {
+                width: 200px;
+                height: 260px;
+                margin-bottom: 30px;
+            }
+
+            .sidebar h1 {
+                font-size: 24px;
+            }
+
+            .main-content {
+                padding: 40px 40px;
+            }
+
+            .skills-grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 20px;
+                min-height: auto;
+            }
+
+            .sidebar {
+                padding: 40px 30px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 140, 66, 0.1);
+            }
+
+            .profile-image-container {
+                width: 200px;
+                height: 260px;
+                margin-bottom: 30px;
+            }
+
+            .sidebar h1 {
+                font-size: 26px;
+            }
+
+            .main-content {
+                padding: 35px 30px;
+            }
+
+            .section-title {
+                font-size: 16px;
+                margin-bottom: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .profile-text {
+                text-align: left;
+                font-size: 12px;
+            }
+
+            .item-description {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+            }
+
+            .sidebar {
+                padding: 30px 20px;
+            }
+
+            .profile-image-container {
+                width: 180px;
+                height: 240px;
+                margin-bottom: 25px;
+            }
+
+            .sidebar h1 {
+                font-size: 22px;
+            }
+
+            .main-content {
+                padding: 25px 20px;
+            }
+
+            .section-title {
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+
+            .social-links {
+                gap: 10px;
+            }
+
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .skills-grid {
+                gap: 15px;
+            }
+
+            .contact-info {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ==================== SIDEBAR ==================== -->
+        <div class="sidebar">
+            <div class="profile-image-container">
+                <img src="jude.png" alt="Ola Dev & Web">
+            </div>
+
+            <h1>Ola Dev<br>& Web</h1>
+
+            <div class="divider"></div>
+
+            <p class="job-title">Développeur Web<br>Full-Stack &<br>Architecte Réseau</p>
+
+            <!-- Contact Section -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-envelope"></i> Contact</h2>
+                <div class="contact-info">
+                    <p>
+                        <strong>Email</strong>
+                        OlaDevWeb@proton.me
+                    </p>
+                    <p>
+                        <strong>Téléphone</strong>
+                        +229 016 820 0003
+                    </p>
+                    <p>
+                        <strong>Adresse</strong>
+                        Cotonou, Bénin
+                    </p>
+                </div>
+
+                <div class="social-links">
+                    <a href="index.html" title="Portfolio" target="_blank" rel="noopener">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="https://wa.me/2290168200003" title="WhatsApp" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://github.com" title="GitHub" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Languages Section -->
+            <div class="sidebar-section">
+                <h2><i class="fas fa-language"></i> Langues</h2>
+                <div class="languages">
+                    <div class="language-item">
+                        <label>Français</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                    <div class="language-item">
+                        <label>Anglais</label>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <div class="main-content">
+            <!-- Profile Section -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i> Profil</h2>
+                <p class="profile-text">
+                    Développeur web full-stack passionné avec 4 années d'expérience dans la création de solutions numériques innovantes et performantes. Spécialisé en développement d'applications web modernes, architectures réseau scalables et design UX/UI. J'associe expertise technique, design élégant et compréhension métier pour livrer des projets qui génèrent des résultats concrets et durables.
+                </p>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Expérience</h2>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>Développeur Web Full-Stack Indépendant</h3>
+                            <div class="item-company">Création de Sites & Applications Web</div>
+                        </div>
+                        <div class="item-date">2020 - Présent</div>
+                    </div>
+                    <div class="item-description">
+                        Développement de 40+ projets web pour divers secteurs (e-commerce, immobilier, restauration, services). Création de landing pages optimisées pour la conversion avec intégration WhatsApp. Architecture et déploiement de solutions web complètes (frontend + backend) avec performance optimale.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>Architecte Réseau & DevOps</h3>
+                            <div class="item-company">Infrastructure et Sécurité Réseau</div>
+                        </div>
+                        <div class="item-date">2020 - Présent</div>
+                    </div>
+                    <div class="item-description">
+                        Conception et déploiement d'infrastructures réseau robustes et scalables. Configuration de serveurs (Linux, Nginx, Apache) et gestion cloud (AWS, Google Cloud). Mise en place de solutions de sécurité réseau, certificats SSL et conteneurisation Docker.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>Développeur Web Full-Stack</h3>
+                            <div class="item-company">Agence Digitale</div>
+                        </div>
+                        <div class="item-date">2019 - 2020</div>
+                    </div>
+                    <div class="item-description">
+                        Développement de sites web responsifs et applications interactives. Collaboration avec designers et product managers. Implémentation de designs en code de qualité production avec optimisation UX/UI et performance.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-code"></i> Projets Clés</h2>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>OlaBenin Bridge</h3>
+                            <div class="item-company">Plateforme d'Importation Chine → Bénin</div>
+                        </div>
+                    </div>
+                    <div class="item-description">
+                        Plateforme e-commerce complète pour simplifier les achats depuis la Chine. Système de tracking en temps réel, intégration WhatsApp, calcul de coûts logistiques, gestion de commandes et support multi-pays. Stack: React, Node.js, MongoDB, Firebase.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>Style & Prestige</h3>
+                            <div class="item-company">Landing Page Salon de Coiffure Premium</div>
+                        </div>
+                    </div>
+                    <div class="item-description">
+                        Site haut de gamme avec réservation en ligne, galerie de réalisations, tarification dynamique et conversion via WhatsApp Business. Design premium optimisé pour conversion maximale et expérience utilisateur exceptionnelle.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>Saveur d'Or & Villa Azurea</h3>
+                            <div class="item-company">Restaurant & Location de Luxe</div>
+                        </div>
+                    </div>
+                    <div class="item-description">
+                        Sites modernes optimisés pour conversion avec menus interactifs, systèmes de commande/réservation intégrés et support client WhatsApp. Performance optimisée, responsive design et SEO-friendly.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-star"></i> Compétences Techniques</h2>
+
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-code"></i> React / Vue.js</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 92%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-server"></i> Node.js / Express</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-code"></i> JavaScript / TypeScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-palette"></i> HTML5 / CSS3</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 97%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-database"></i> MongoDB / PostgreSQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-plug"></i> REST API / GraphQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-cube"></i> Docker / Linux</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-cloud"></i> Cloud / AWS</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 82%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-network-wired"></i> Nginx / Apache</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-cogs"></i> Tailwind CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 93%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-git-alt"></i> Git / GitHub</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 91%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <span class="skill-name"><i class="fas fa-flask"></i> Testing / Jest</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formation & Certifications</h2>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <div class="item-details">
+                            <h3>Développement Web Full-Stack</h3>
+                            <div class="item-company">Formation Autodidacte & Cours en Ligne</div>
+                        </div>
+                        <div class="item-date">2018 - 2020</div>
+                    </div>
+                    <div class="item-description">
+                        Formation complète en développement web moderne incluant React, Node.js, bases de données, architecture réseau et DevOps. Projets pratiques et portfolio professionnel.
+                    </div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-name"><i class="fas fa-certificate"></i> Certification AWS Solutions Architect</div>
+                    <div class="cert-issuer">Amazon Web Services</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-name"><i class="fas fa-certificate"></i> Docker Certified Associate</div>
+                    <div class="cert-issuer">Docker Inc.</div>
+                </div>
+
+                <div class="cert-item">
+                    <div class="cert-name"><i class="fas fa-certificate"></i> JavaScript Advanced Specialization</div>
+                    <div class="cert-issuer">Coursera</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Animate skill bars on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillLevels = entry.target.querySelectorAll('.skill-level');
+                    skillLevels.forEach(level => {
+                        const width = level.style.width;
+                        level.style.width = '0';
+                        setTimeout(() => {
+                            level.style.width = width;
+                        }, 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.querySelector('.skills-grid');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
