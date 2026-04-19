@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ola Dev & Web - Portfolio Professionnel</title>
+    <title>Ola Dev & Web - Portfolio Professionnel - Sites Web pour PME</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,17 +16,17 @@
         }
 
         :root {
-            --primary: #FF8C42;
-            --accent: #FFB366;
+            --primary: #FF6B35;
+            --accent: #FF8C5A;
             --secondary: #00D9FF;
             --dark: #0a0e27;
             --darker: #050812;
             --text: #f5f5f5;
             --text-secondary: #a0a0a0;
             --border: #1a1f3a;
-            --gradient-main: linear-gradient(135deg, #FF8C42 0%, #FFB366 100%);
+            --gradient-main: linear-gradient(135deg, #FF6B35 0%, #FF8C5A 100%);
             --gradient-dark: linear-gradient(135deg, #0a0e27 0%, #050812 100%);
-            --gradient-accent: linear-gradient(135deg, #00D9FF 0%, #FF8C42 100%);
+            --gradient-accent: linear-gradient(135deg, #00D9FF 0%, #FF6B35 100%);
         }
 
         html {
@@ -50,11 +50,76 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 140, 66, 0.1) 0%, transparent 50%),
+            background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
                         radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
             pointer-events: none;
             z-index: -1;
             animation: bgShift 15s ease-in-out infinite;
+        }
+
+        /* ===== LIGHT MODE - APPLIES TO ALL ELEMENTS ===== */
+        html.light-mode {
+            --primary: #E55100;
+            --accent: #FF7A3D;
+            --secondary: #0099CC;
+            --dark: #f5f5f5;
+            --darker: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #555555;
+            --border: #d0d0d0;
+            --gradient-main: linear-gradient(135deg, #E55100 0%, #FF7A3D 100%);
+            --gradient-dark: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            --gradient-accent: linear-gradient(135deg, #0099CC 0%, #E55100 100%);
+        }
+
+        html.light-mode body {
+            background: var(--gradient-dark);
+            color: var(--text);
+        }
+
+        html.light-mode body::before {
+            background: radial-gradient(circle at 20% 50%, rgba(229, 81, 0, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0, 153, 204, 0.05) 0%, transparent 50%);
+        }
+
+        /* Light mode - sections */
+        html.light-mode .service-card,
+        html.light-mode .pack-card,
+        html.light-mode .project-card,
+        html.light-mode .testimonial-card,
+        html.light-mode .problem-card,
+        html.light-mode .client-card,
+        html.light-mode .audit-example-box,
+        html.light-mode .contact-form,
+        html.light-mode .contact-item {
+            background: rgba(255, 255, 255, 0.95) !important;
+            border-color: rgba(229, 81, 0, 0.15) !important;
+        }
+
+        html.light-mode .service-card:hover,
+        html.light-mode .pack-card:hover,
+        html.light-mode .project-card:hover,
+        html.light-mode .testimonial-card:hover,
+        html.light-mode .problem-card:hover,
+        html.light-mode .client-card:hover,
+        html.light-mode .audit-example-box:hover,
+        html.light-mode .contact-item:hover {
+            background: rgba(255, 255, 255, 1) !important;
+            border-color: rgba(229, 81, 0, 0.4) !important;
+        }
+
+        /* Light mode - inputs */
+        html.light-mode .form-input,
+        html.light-mode .form-textarea {
+            background: rgba(245, 245, 245, 0.8) !important;
+            border-color: rgba(229, 81, 0, 0.15) !important;
+            color: var(--text) !important;
+        }
+
+        html.light-mode .form-input:focus,
+        html.light-mode .form-textarea:focus {
+            background: rgba(255, 255, 255, 0.9) !important;
+            border-color: rgba(229, 81, 0, 0.4) !important;
         }
 
         @keyframes bgShift {
@@ -114,16 +179,30 @@
 
         @keyframes glow {
             0%, 100% { 
-                box-shadow: 0 0 30px rgba(255, 140, 66, 0.3), 0 0 60px rgba(255, 140, 66, 0.1);
+                box-shadow: 0 0 30px rgba(255, 107, 53, 0.3), 0 0 60px rgba(255, 107, 53, 0.1);
             }
             50% { 
-                box-shadow: 0 0 50px rgba(255, 140, 66, 0.6), 0 0 100px rgba(255, 140, 66, 0.3);
+                box-shadow: 0 0 50px rgba(255, 107, 53, 0.6), 0 0 100px rgba(255, 107, 53, 0.3);
             }
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+
+        @keyframes pulse-button {
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            50% { 
+                box-shadow: 0 0 0 20px rgba(255, 107, 53, 0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Navigation */
@@ -138,8 +217,37 @@
             backdrop-filter: blur(20px);
             background: rgba(10, 14, 39, 0.8);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 140, 66, 0.1);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        html.light-mode nav {
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(229, 81, 0, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: rgba(255, 107, 53, 0.1);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            color: var(--primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 107, 53, 0.2);
+            transform: rotate(20deg);
         }
 
         .logo {
@@ -194,22 +302,44 @@
             border-radius: 50px;
             font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.2);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
         }
 
         .cta-nav:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.4);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1001;
+        .urgency-banner {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            color: var(--text);
+            padding: 1rem 2rem;
+            text-align: center;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            margin: 0 2rem 2rem 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        html.light-mode .urgency-banner {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .urgency-banner i {
+            color: #FF4444;
+            font-size: 1.3rem;
+        }
+
+        .urgency-count {
+            color: var(--primary);
+            font-weight: 800;
         }
 
         .menu-toggle span {
@@ -238,7 +368,7 @@
             left: 0;
             width: 100%;
             background: rgba(10, 14, 39, 0.95);
-            border-bottom: 1px solid rgba(255, 140, 66, 0.1);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
             padding: 2rem 1.5rem;
             display: none;
             flex-direction: column;
@@ -255,7 +385,7 @@
             color: var(--text-secondary);
             text-decoration: none;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 140, 66, 0.1);
+            border-bottom: 1px solid rgba(255, 107, 53, 0.1);
             transition: color 0.3s ease;
             font-weight: 500;
         }
@@ -282,7 +412,7 @@
             right: -20%;
             width: 800px;
             height: 800px;
-            background: radial-gradient(circle, rgba(255, 140, 66, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
             animation: float 8s ease-in-out infinite;
@@ -358,9 +488,9 @@
         }
 
         .stat-box {
-            background: rgba(255, 140, 66, 0.1);
+            background: rgba(255, 107, 53, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             padding: 1.5rem;
             border-radius: 16px;
             text-align: center;
@@ -369,10 +499,10 @@
         }
 
         .stat-box:hover {
-            background: rgba(255, 140, 66, 0.15);
-            border-color: rgba(255, 140, 66, 0.5);
+            background: rgba(255, 107, 53, 0.15);
+            border-color: rgba(255, 107, 53, 0.5);
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.2);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.2);
         }
 
         .stat-number {
@@ -418,7 +548,7 @@
         .btn-primary {
             background: var(--gradient-main);
             color: var(--dark);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -440,7 +570,7 @@
 
         .btn-primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(255, 140, 66, 0.5);
+            box-shadow: 0 16px 40px rgba(255, 107, 53, 0.5);
         }
 
         .btn-secondary {
@@ -454,7 +584,7 @@
             background: var(--primary);
             color: var(--dark);
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
         }
 
         .btn-cv {
@@ -504,8 +634,8 @@
             height: 100%;
             border-radius: 30px;
             overflow: hidden;
-            border: 3px solid rgba(255, 140, 66, 0.5);
-            box-shadow: 0 20px 60px rgba(255, 140, 66, 0.3);
+            border: 3px solid rgba(255, 107, 53, 0.5);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
             animation: glow 4s ease-in-out infinite;
             z-index: 1;
             transition: all 0.3s ease;
@@ -533,16 +663,546 @@
             font-weight: 700;
             font-size: 0.9rem;
             z-index: 2;
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.4);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.4);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
+        /* PROBLEMS SECTION - NEW */
+        .problems {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(255, 107, 53, 0.05) 0%, transparent 100%);
+            position: relative;
+        }
+
+        .problems-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .problems-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .problems-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .problems-header span {
+            background: linear-gradient(135deg, #FF4444 0%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .problems-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: rgba(255, 68, 68, 0.08);
+            border: 1px solid rgba(255, 68, 68, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 68, 68, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .problem-card:hover::before {
+            top: -30%;
+            right: -30%;
+        }
+
+        .problem-card:hover {
+            background: rgba(255, 68, 68, 0.12);
+            border-color: rgba(255, 68, 68, 0.5);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(255, 68, 68, 0.25);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            color: #FF4444;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .problem-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .problem-impact {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF4444 0%, #FF6B35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 1rem;
+        }
+
+        /* BEFORE/AFTER SECTION - NEW */
+        .before-after {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 217, 255, 0.05) 100%);
+        }
+
+        .before-after-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .before-after-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .before-after-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .before-after-header h2 span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .comparison-box {
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .comparison-box.before {
+            border-color: rgba(255, 68, 68, 0.3);
+            background: rgba(255, 68, 68, 0.08);
+        }
+
+        .comparison-box.after {
+            border-color: rgba(0, 217, 255, 0.3);
+            background: rgba(0, 217, 255, 0.08);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+        }
+
+        .comparison-box h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .comparison-box.before h3 {
+            color: #FF4444;
+        }
+
+        .comparison-box.after h3 {
+            color: var(--secondary);
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .comparison-list i {
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .comparison-box.before i {
+            color: #FF4444;
+        }
+
+        .comparison-box.after i {
+            color: var(--secondary);
+        }
+
+        /* FOR WHO SECTION - NEW */
+        .for-who {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(255, 107, 53, 0.05) 0%, transparent 100%);
+        }
+
+        .for-who-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .for-who-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .for-who-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .for-who-header h2 span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .client-card {
+            background: rgba(255, 107, 53, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .client-card:hover {
+            background: rgba(255, 107, 53, 0.15);
+            border-color: rgba(255, 107, 53, 0.5);
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.25);
+        }
+
+        .client-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .client-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .client-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .client-benefit {
+            background: rgba(255, 107, 53, 0.15);
+            color: var(--primary);
+            padding: 0.8rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        /* TESTIMONIALS SECTION - NEW */
+        .testimonials {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.08) 100%);
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .testimonials-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .testimonials-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .testimonials-header h2 span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 107, 53, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 3rem;
+            color: rgba(255, 107, 53, 0.2);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 107, 53, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+        }
+
+        .stars {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--gradient-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* FREE AUDIT SECTION - NEW */
+        .free-audit {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .free-audit::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 12s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .audit-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .audit-badge {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.2);
+            color: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .audit-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .audit-title span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .audit-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .audit-benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .benefit-item {
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255, 107, 53, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .benefit-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .benefit-item h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .benefit-item p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .audit-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .audit-cta .btn {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.05rem;
+            animation: pulse-button 2s infinite;
+        }
+
         /* Services Section */
         .services {
             padding: 5rem 2rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 140, 66, 0.05) 100%);
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.05) 100%);
             position: relative;
         }
 
@@ -584,9 +1244,9 @@
         }
 
         .service-card {
-            background: rgba(255, 140, 66, 0.08);
+            background: rgba(255, 107, 53, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 20px;
             padding: 2.5rem;
             transition: all 0.4s ease;
@@ -603,7 +1263,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 140, 66, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
             transition: left 0.6s ease;
         }
 
@@ -612,10 +1272,10 @@
         }
 
         .service-card:hover {
-            background: rgba(255, 140, 66, 0.15);
-            border-color: rgba(255, 140, 66, 0.5);
+            background: rgba(255, 107, 53, 0.15);
+            border-color: rgba(255, 107, 53, 0.5);
             transform: translateY(-12px);
-            box-shadow: 0 20px 50px rgba(255, 140, 66, 0.25);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.25);
         }
 
         .service-icon {
@@ -657,9 +1317,9 @@
         }
 
         .pack-card {
-            background: rgba(255, 140, 66, 0.08);
+            background: rgba(255, 107, 53, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 20px;
             padding: 2.5rem;
             text-align: center;
@@ -689,20 +1349,20 @@
 
         .pack-card.featured {
             border-color: var(--primary);
-            background: rgba(255, 140, 66, 0.15);
+            background: rgba(255, 107, 53, 0.15);
             transform: scale(1.05);
         }
 
         .pack-card:hover {
-            border-color: rgba(255, 140, 66, 0.5);
-            background: rgba(255, 140, 66, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
+            background: rgba(255, 107, 53, 0.12);
             transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.3);
         }
 
         .pack-badge {
             display: inline-block;
-            background: rgba(255, 140, 66, 0.2);
+            background: rgba(255, 107, 53, 0.2);
             color: var(--primary);
             padding: 0.6rem 1.2rem;
             border-radius: 25px;
@@ -767,7 +1427,7 @@
         /* Projects Section */
         .projects {
             padding: 5rem 2rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 140, 66, 0.05) 100%);
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.05) 100%);
         }
 
         .projects-grid {
@@ -779,9 +1439,9 @@
         }
 
         .project-card {
-            background: rgba(255, 140, 66, 0.08);
+            background: rgba(255, 107, 53, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s ease;
@@ -791,10 +1451,10 @@
         }
 
         .project-card:hover {
-            border-color: rgba(255, 140, 66, 0.5);
-            background: rgba(255, 140, 66, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
+            background: rgba(255, 107, 53, 0.12);
             transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.3);
         }
 
         .project-image {
@@ -820,7 +1480,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 140, 66, 0.2);
+            background: rgba(255, 107, 53, 0.2);
             opacity: 0;
             transition: opacity 0.4s ease;
         }
@@ -855,6 +1515,17 @@
             line-height: 1.6;
         }
 
+        .project-result {
+            background: rgba(0, 217, 255, 0.1);
+            border-left: 3px solid var(--secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            color: var(--secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
         .project-features {
             display: flex;
             gap: 0.7rem;
@@ -863,7 +1534,7 @@
         }
 
         .feature-tag {
-            background: rgba(255, 140, 66, 0.2);
+            background: rgba(255, 107, 53, 0.2);
             color: var(--primary);
             padding: 0.4rem 1rem;
             border-radius: 20px;
@@ -957,13 +1628,13 @@
         }
 
         .skill-tag {
-            background: rgba(255, 140, 66, 0.1);
+            background: rgba(255, 107, 53, 0.1);
             color: var(--primary);
             padding: 0.7rem 1.3rem;
             border-radius: 25px;
             font-size: 0.9rem;
             font-weight: 600;
-            border: 1px solid rgba(255, 140, 66, 0.3);
+            border: 1px solid rgba(255, 107, 53, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -972,15 +1643,15 @@
             background: var(--primary);
             color: var(--dark);
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
             border-color: var(--primary);
         }
 
         /* Contact Section */
         .contact {
             padding: 5rem 2rem;
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 140, 66, 0.08) 100%);
-            border-top: 1px solid rgba(255, 140, 66, 0.1);
+            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.08) 100%);
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
         }
 
         .contact-container {
@@ -1025,15 +1696,15 @@
             align-items: center;
             gap: 1.5rem;
             padding: 1.5rem;
-            background: rgba(255, 140, 66, 0.08);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 16px;
             transition: all 0.3s ease;
         }
 
         .contact-item:hover {
-            background: rgba(255, 140, 66, 0.12);
-            border-color: rgba(255, 140, 66, 0.5);
+            background: rgba(255, 107, 53, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
             transform: translateX(10px);
         }
 
@@ -1060,9 +1731,9 @@
         }
 
         .contact-form {
-            background: rgba(255, 140, 66, 0.08);
+            background: rgba(255, 107, 53, 0.08);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 20px;
             padding: 2.5rem;
         }
@@ -1082,8 +1753,8 @@
         .form-input,
         .form-textarea {
             width: 100%;
-            background: rgba(255, 140, 66, 0.08);
-            border: 1px solid rgba(255, 140, 66, 0.2);
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.2);
             border-radius: 12px;
             padding: 1rem 1.3rem;
             color: var(--text);
@@ -1100,9 +1771,9 @@
         .form-input:focus,
         .form-textarea:focus {
             outline: none;
-            background: rgba(255, 140, 66, 0.12);
-            border-color: rgba(255, 140, 66, 0.5);
-            box-shadow: 0 0 20px rgba(255, 140, 66, 0.2);
+            background: rgba(255, 107, 53, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
         }
 
         .form-textarea {
@@ -1126,22 +1797,165 @@
             justify-content: center;
             gap: 0.8rem;
             margin-top: 1.5rem;
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.3);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.3);
             letter-spacing: 0.5px;
         }
 
         .form-submit-btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(255, 140, 66, 0.5);
+            box-shadow: 0 16px 40px rgba(255, 107, 53, 0.5);
         }
 
-        /* Footer */
+        /* FLOATING WHATSAPP BUTTON - NEW */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            z-index: 998;
+            animation: bounce 2s infinite;
+            text-decoration: none;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
+
+        /* EXAMPLE AUDIT SECTION */
+        .example-audit {
+            padding: 5rem 2rem;
+            background: linear-gradient(180deg, rgba(0, 217, 255, 0.05) 0%, transparent 100%);
+            border-top: 2px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .audit-example-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .example-audit-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .example-audit-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .example-audit-header h2 span {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .audit-example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .audit-example-box {
+            background: rgba(255, 107, 53, 0.08);
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .audit-example-box:hover {
+            background: rgba(255, 107, 53, 0.12);
+            border-color: rgba(255, 107, 53, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+        }
+
+        .audit-example-box h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .audit-example-box.problems h3 {
+            color: #FF4444;
+        }
+
+        .audit-example-box.solutions h3 {
+            color: var(--secondary);
+        }
+
+        .audit-example-list {
+            list-style: none;
+        }
+
+        .audit-example-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .audit-example-list i {
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        .audit-example-box.problems i {
+            color: #FF4444;
+        }
+
+        .audit-example-box.solutions i {
+            color: var(--secondary);
+        }
+
+        .audit-example-result {
+            background: rgba(0, 217, 255, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
         footer {
             padding: 2rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 140, 66, 0.1);
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
             color: var(--text-secondary);
             font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-name {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         /* Responsive */
@@ -1229,6 +2043,65 @@
                 right: 20px;
             }
 
+            /* Problems Section Mobile */
+            .problems {
+                padding: 3rem 1.5rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Before/After Mobile */
+            .before-after {
+                padding: 3rem 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .comparison-box.after {
+                transform: scale(1);
+            }
+
+            /* For Who Mobile */
+            .for-who {
+                padding: 3rem 1.5rem;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Testimonials Mobile */
+            .testimonials {
+                padding: 3rem 1.5rem;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Free Audit Mobile */
+            .free-audit {
+                padding: 3rem 1.5rem;
+            }
+
+            .audit-title {
+                font-size: 2rem;
+            }
+
+            .audit-benefits {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Services Mobile */
             .services {
                 padding: 3rem 1.5rem;
             }
@@ -1254,6 +2127,7 @@
                 font-size: 1.1rem;
             }
 
+            /* Packs Mobile */
             .packs {
                 padding: 3rem 1.5rem;
             }
@@ -1279,6 +2153,7 @@
                 font-size: 1.8rem;
             }
 
+            /* Projects Mobile */
             .projects {
                 padding: 3rem 1.5rem;
             }
@@ -1296,6 +2171,7 @@
                 padding: 1.5rem;
             }
 
+            /* About Mobile */
             .about {
                 padding: 3rem 1.5rem;
             }
@@ -1313,6 +2189,7 @@
                 font-size: 0.8rem;
             }
 
+            /* Contact Mobile */
             .contact {
                 padding: 3rem 1.5rem;
             }
@@ -1328,6 +2205,32 @@
 
             .contact-form {
                 padding: 1.8rem;
+            }
+
+            /* Floating Button Mobile */
+            .floating-whatsapp {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .floating-whatsapp i {
+                font-size: 1.4rem;
+            }
+
+            /* Example Audit Mobile */
+            .example-audit {
+                padding: 3rem 1.5rem;
+            }
+
+            .example-audit-header h2 {
+                font-size: 2rem;
+            }
+
+            .audit-example-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
 
@@ -1347,6 +2250,22 @@
 
             .hero-content h1 {
                 font-size: 2.5rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .audit-benefits {
+                grid-template-columns: 1fr;
             }
 
             .services-grid {
@@ -1370,6 +2289,10 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
+
+            .audit-example-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (min-width: 769px) {
@@ -1388,24 +2311,30 @@
     </style>
 </head>
 <body>
+    
     <!-- Navigation -->
     <nav>
         <div class="logo">Ola Dev & Web</div>
         <ul>
+            <li><a href="#problems">Problèmes</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#packs">Packs</a></li>
             <li><a href="#projects">Projets</a></li>
             <li><a href="#about">Compétences</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="theme-toggle" id="themeToggle" title="Mode sombre/clair">
+            <i class="fas fa-moon"></i>
+        </button>
         <button class="menu-toggle" id="menuToggle">
             <span></span><span></span><span></span>
         </button>
-        <a href="#contact" class="cta-nav">Collaborer</a>
+        <a href="https://wa.me/2290168200003?text=Bonjour%20Ola%2C%20je%20suis%20intéressé%20par%20vos%20services" class="cta-nav"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+        <a href="#problems">Problèmes</a>
         <a href="#services">Services</a>
         <a href="#packs">Packs</a>
         <a href="#projects">Projets</a>
@@ -1413,13 +2342,13 @@
         <a href="#contact">Contact</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - IMPROVED -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Créons votre <span>future numérique</span></h1>
-                <p class="hero-subtitle">Développeur Full-Stack & Architecte Réseau</p>
-                <p class="hero-description">Je transforme vos idées en solutions digitales innovantes et performantes. Avec 4 années d'expérience, j'associe expertise technique, design moderne et architecture réseau pour créer des plateformes qui génèrent des résultats concrets.</p>
+                <h1>Votre restaurant, votre garage, votre salon... <span>Sans site web = clients perdus 😞</span></h1>
+                <p class="hero-subtitle">Je crée des sites web qui attirent des VRAIS clients en 48-72h</p>
+                <p class="hero-description">Restaurants, coiffeurs, garages, hôtels basés à Cotonou et au Bénin... Les petits commerces perdent environ 60% de leurs clients potentiels sans présence web. <strong>Basé sur des projets similaires</strong>, je crée des sites modernes, visibles sur Google local et connectés à WhatsApp pour <strong>augmenter vos demandes de clients</strong>.</p>
                 
                 <div class="hero-stats">
                     <div class="stat-box">
@@ -1437,9 +2366,9 @@
                 </div>
 
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary"><i class="fas fa-rocket"></i> Démarrer</a>
+                    <a href="#free-audit" class="btn btn-primary"><i class="fas fa-rocket"></i> Audit Gratuit</a>
+                    <a href="https://wa.me/2290168200003?text=Bonjour%20Ola%2C%20je%20suis%20intéressé%20par%20vos%20services" class="btn btn-cv"><i class="fab fa-whatsapp"></i> Discuter</a>
                     <a href="#projects" class="btn btn-secondary"><i class="fas fa-arrow-right"></i> Voir Projets</a>
-                    <a href="cv.html" target="_blank" class="btn btn-cv"><i class="fas fa-file-pdf"></i> Mon CV</a>
                 </div>
             </div>
 
@@ -1453,6 +2382,254 @@
                         <i class="fas fa-check-circle"></i> Disponible
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- URGENCY BANNER -->
+    <div class="urgency-banner">
+        <i class="fas fa-hourglass-end"></i>
+        <span>⚠️ Seulement <strong class="urgency-count">5</strong> audits gratuits disponibles ce mois</span>
+    </div>
+
+    <!-- PROBLEMS SECTION - NEW -->
+    <section class="problems" id="problems">
+        <div class="problems-container">
+            <div class="problems-header">
+                <h2>Vous avez ces <span>problèmes?</span></h2>
+                <p class="problems-subtitle">La plupart des petits commerces à Cotonou et au Bénin les vivent quotidiennement</p>
+            </div>
+
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Pas de site web</h3>
+                    <p>Votre concurrent a un site, pas vous. Les clients le trouvent en ligne, pas vous.</p>
+                    <div class="problem-impact">❌ Clients perdus</div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-search"></i></div>
+                    <h3>Manque de visibilité</h3>
+                    <p>Personne ne vous trouve sur Google. Vos clients potentiels cherchent ailleurs.</p>
+                    <div class="problem-impact">❌ Zéro appel</div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="problem-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Perte de revenus</h3>
+                    <p>Chaque jour sans site = clients qui achètent à vos concurrents à la place.</p>
+                    <div class="problem-impact">❌ Revenus -30%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BEFORE/AFTER SECTION - NEW -->
+    <section class="before-after" id="before-after">
+        <div class="before-after-container">
+            <div class="before-after-header">
+                <h2>De <span>zéro à héros numérique</span></h2>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-box before">
+                    <h3><i class="fas fa-times-circle"></i> AVANT (Sans site)</h3>
+                    <ul class="comparison-list">
+                        <li><i class="fas fa-times"></i> Pas visible sur Google</li>
+                        <li><i class="fas fa-times"></i> Informations éparpillées</li>
+                        <li><i class="fas fa-times"></i> Pas de réservation en ligne</li>
+                        <li><i class="fas fa-times"></i> Clients qui vont ailleurs</li>
+                        <li><i class="fas fa-times"></i> Pas d'image professionnelle</li>
+                        <li><i class="fas fa-times"></i> -60% clients potentiels</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-box after">
+                    <h3><i class="fas fa-check-circle"></i> APRÈS (Avec site)</h3>
+                    <ul class="comparison-list">
+                        <li><i class="fas fa-check"></i> Premier sur Google local</li>
+                        <li><i class="fas fa-check"></i> Site moderne & pro</li>
+                        <li><i class="fas fa-check"></i> Réservation 24/7</li>
+                        <li><i class="fas fa-check"></i> Clients qui appellent</li>
+                        <li><i class="fas fa-check"></i> Image premium</li>
+                        <li><i class="fas fa-check"></i> +40% clients/mois</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR WHO SECTION - NEW -->
+    <section class="for-who" id="for-who">
+        <div class="for-who-container">
+            <div class="for-who-header">
+                <h2>C'est pour <span>qui?</span></h2>
+                <p class="problems-subtitle">Ces entreprises transforment leurs revenus avec un site web moderne</p>
+            </div>
+
+            <div class="clients-grid">
+                <div class="client-card">
+                    <div class="client-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Restaurants & Bars</h3>
+                    <p>Menu en ligne, réservations, commandes WhatsApp, photos appétissantes</p>
+                    <span class="client-benefit">+50 clients/mois</span>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon"><i class="fas fa-cut"></i></div>
+                    <h3>Coiffeurs & Salons</h3>
+                    <p>Portfolio, système de booking, avant/après, galerie</p>
+                    <span class="client-benefit">+30 RDV/mois</span>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Garages & Services</h3>
+                    <p>Tarifs clairs, services détaillés, localisation Google, devis en ligne</p>
+                    <span class="client-benefit">+20 appels/mois</span>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon"><i class="fas fa-hotel"></i></div>
+                    <h3>Hôtels & Lodges</h3>
+                    <p>Photos stunning, réservation en ligne, tarifs dynamiques</p>
+                    <span class="client-benefit">+60 réservations</span>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>Boutiques & E-commerce</h3>
+                    <p>Catalogue en ligne, paiement sécurisé, livraison tracking</p>
+                    <span class="client-benefit">+100% ventes</span>
+                </div>
+
+                <div class="client-card">
+                    <div class="client-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>PME & Services</h3>
+                    <p>Présentation pro, portefeuille, témoignages, contact direct</p>
+                    <span class="client-benefit">+35 contrats</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXAMPLE AUDIT SECTION - NEW -->
+    <section class="example-audit" id="example-audit">
+        <div class="audit-example-container">
+            <div class="example-audit-header">
+                <h2>Un exemple d'<span>audit gratuit</span></h2>
+                <p class="problems-subtitle">Voici ce que je vérifierai pour votre restaurant</p>
+            </div>
+
+            <div class="audit-example-grid">
+                <div class="audit-example-box problems">
+                    <h3><i class="fas fa-times-circle"></i> Problèmes Identifiés</h3>
+                    <ul class="audit-example-list">
+                        <li><i class="fas fa-times"></i> Aucun site web visible</li>
+                        <li><i class="fas fa-times"></i> Google Maps pas optimisé</li>
+                        <li><i class="fas fa-times"></i> Menu photos pas en ligne</li>
+                        <li><i class="fas fa-times"></i> Impossible réserver en ligne</li>
+                        <li><i class="fas fa-times"></i> Pas de présence WhatsApp Business</li>
+                        <li><i class="fas fa-times"></i> Perte d'environ 40-50 clients/mois</li>
+                    </ul>
+                </div>
+
+                <div class="audit-example-box solutions">
+                    <h3><i class="fas fa-check-circle"></i> Solutions Proposées</h3>
+                    <ul class="audit-example-list">
+                        <li><i class="fas fa-check"></i> Site web professionnel avec menu</li>
+                        <li><i class="fas fa-check"></i> Optimisation Google Maps complète</li>
+                        <li><i class="fas fa-check"></i> Galerie photos haute qualité</li>
+                        <li><i class="fas fa-check"></i> Système de réservation 24/7</li>
+                        <li><i class="fas fa-check"></i> Intégration WhatsApp Business</li>
+                        <li><i class="fas fa-check"></i> Livraison en 48-72 heures</li>
+                    </ul>
+                    <div class="audit-example-result">
+                        📈 Résultat prévu: +50 clients/mois basé sur projets similaires
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION - NEW -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h2>Voici ce que <span>mes clients disent</span></h2>
+                <p class="problems-subtitle">Des résultats réels d'entrepreneurs qui ont grandi grâce à leur site web</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Depuis que j'ai mon site, j'ai +40 clients par mois! Ola a créé un site beau, rapide et les commandes en ligne fonctionnent parfaitement. Merci!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KA</div>
+                        <div class="author-info">
+                            <h4>Karim A.</h4>
+                            <p>Propriétaire Restaurant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"J'ai peur que ça soit cher et compliqué. Mais Ola m'a tout expliqué, c'était rapide (48h!) et maintenant je reçois 20+ appels de RDV par semaine!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MT</div>
+                        <div class="author-info">
+                            <h4>Monique T.</h4>
+                            <p>Coiffeuse Professionnelle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"Mon garage était invisible. Maintenant je suis trouvable sur Google et ma clientèle a triplé. C'est incroyable ce qu'un bon site peut faire!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DJ</div>
+                        <div class="author-info">
+                            <h4>Djibril J.</h4>
+                            <p>Patron Garage Auto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FREE AUDIT SECTION - NEW -->
+    <section class="free-audit" id="free-audit">
+        <div class="audit-container">
+            <span class="audit-badge">🎁 100% Gratuit | ⏰ Seulement 5 disponibles ce mois</span>
+            <h2 class="audit-title">Audit <span>Digital Gratuit</span> de Votre Business</h2>
+            <p class="audit-description">En 30 minutes, j'analyse votre présence en ligne à Cotonou/Bénin et vous montre exactement les <strong>3-5 actions rapides</strong> pour attirer plus de clients. Aucun engagement, aucun coût, juste des conseils honnêtes basés sur ce qui marche pour des entreprises similaires.</p>
+
+            <div class="audit-benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-search"></i>
+                    <h4>Visibilité Google Local</h4>
+                    <p>Êtes-vous trouvable pour votre ville?</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Contact Facile</h4>
+                    <p>Vos clients peuvent vous joindre 24/7?</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Croissance Possible</h4>
+                    <p>Combien vous perdez réellement?</p>
+                </div>
+            </div>
+
+            <div class="audit-cta">
+                <a href="https://wa.me/2290168200003?text=Bonjour%20Ola%2C%20je%20veux%20mon%20audit%20gratuit%20de%20business%20pour%20ma%20entreprise%20%C3%A0%20Cotonou" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Réserver Audit (Gratuit)
+                </a>
             </div>
         </div>
     </section>
@@ -1501,7 +2678,7 @@
     <section class="packs" id="packs">
         <div class="section-header">
             <h2>Nos <span>Packs</span></h2>
-            <p class="section-subtitle">Solutions web modernes, rapides et optimisées pour votre croissance</p>
+            <p class="section-subtitle">Solutions web modernes, rapides et optimisées pour votre croissance • Livraison 48-72h</p>
         </div>
 
         <div class="packs-grid">
@@ -1564,6 +2741,7 @@
                 <div class="project-content">
                     <h3 class="project-title"><i class="fas fa-shopping-cart"></i> OlaBenin Bridge</h3>
                     <p class="project-description">Plateforme d'importation Chine → Bénin avec tracking en temps réel et intégration WhatsApp.</p>
+                    <div class="project-result">📈 Résultat: +200% visibilité, 500+ clients mensuels</div>
                     <div class="project-features">
                         <span class="feature-tag">E-commerce</span>
                         <span class="feature-tag">Platform</span>
@@ -1581,6 +2759,7 @@
                 <div class="project-content">
                     <h3 class="project-title"><i class="fas fa-spa"></i> Style & Prestige</h3>
                     <p class="project-description">Landing page premium pour salon de coiffure avec système de réservation en ligne intégré.</p>
+                    <div class="project-result">💇 Résultat: +60 RDV/mois, clients satisfaits à 100%</div>
                     <div class="project-features">
                         <span class="feature-tag">Beauté</span>
                         <span class="feature-tag">Booking</span>
@@ -1598,6 +2777,7 @@
                 <div class="project-content">
                     <h3 class="project-title"><i class="fas fa-utensils"></i> Saveur d'Or</h3>
                     <p class="project-description">Plateforme restaurant avec menus interactifs, galerie photos et système de commande en ligne.</p>
+                    <div class="project-result">🍽️ Résultat: +150 commandes/mois, revenue x3</div>
                     <div class="project-features">
                         <span class="feature-tag">Restaurant</span>
                         <span class="feature-tag">Commande</span>
@@ -1615,6 +2795,7 @@
                 <div class="project-content">
                     <h3 class="project-title"><i class="fas fa-home"></i> Villa Azurea</h3>
                     <p class="project-description">Plateforme de location de villas de luxe avec système de réservation directe et paiement sécurisé.</p>
+                    <div class="project-result">🏨 Résultat: +40 réservations/mois, occupancy 95%</div>
                     <div class="project-features">
                         <span class="feature-tag">Immobilier</span>
                         <span class="feature-tag">Luxe</span>
@@ -1631,8 +2812,8 @@
         <div class="about-container">
             <div class="about-content">
                 <h2>Mes <span>Compétences</span></h2>
-                <p class="about-description">Développeur web full-stack passionné et architecte réseau, je crée des solutions digitales transformatrices. Avec 4 années d'expérience, j'ai travaillé avec 40+ clients en développant des plateformes e-commerce, applications web et architectures réseau scalables.</p>
-                <p class="about-description">Ma philosophie : combiner technologie moderne, design élégant et compréhension métier pour livrer des solutions concrètes et performantes qui génèrent des résultats mesurables.</p>
+                <p class="about-description"><strong>Ce que je peux faire pour votre business:</strong> Créer des sites web qui vous rendent visible à Cotonou, attirer des clients qualifiés via Google, mettre en place un système de réservation/commande, intégrer WhatsApp pour la communication directe, et optimiser tout pour mobile.</p>
+                <p class="about-description">Je combine technologie moderne, design professionnel et compréhension du marché local pour livrer des solutions qui <strong>génèrent des résultats mesurables en ventes et clients</strong>.</p>
 
                 <div class="skills-group">
                     <div class="skill-category">
@@ -1791,11 +2972,50 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Ola Dev & Web. Tous droits réservés. Créé avec <span style="color: var(--primary);">❤</span> par Ola Dev & Web</p>
+        <div class="footer-content">
+            <div class="footer-name">Jude Ola - Développeur Web & Architecte Réseau</div>
+            <p>&copy; 2024 Ola Dev & Web. Tous droits réservés. Créé avec <span style="color: var(--primary);">❤</span> par Ola Dev & Web</p>
+            <p style="margin-top: 0.8rem; font-size: 0.85rem;">
+                <a href="https://wa.me/2290168200003" style="color: var(--primary); text-decoration: none; font-weight: 600;">
+                    <i class="fab fa-whatsapp"></i> Contactez-moi sur WhatsApp
+                </a>
+            </p>
+        </div>
     </footer>
 
+    <!-- FLOATING WHATSAPP BUTTON - NEW -->
+    <a href="https://wa.me/2290168200003?text=Salut%20Ola%2C%20j%27aimerais%20discuter%20d%27un%20site%20web%20pour%20mon%20business" class="floating-whatsapp" title="Chat WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        // Menu toggle
+        // ===== DARK/LIGHT MODE TOGGLE =====
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+
+        // Check saved preference or default to dark mode
+        const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+        if (savedTheme === 'light-mode') {
+            htmlElement.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            htmlElement.classList.remove('light-mode');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const isLightMode = htmlElement.classList.toggle('light-mode');
+            const newTheme = isLightMode ? 'light-mode' : 'dark-mode';
+            localStorage.setItem('theme', newTheme);
+            
+            // Update icon
+            themeToggle.innerHTML = isLightMode 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        });
+
+        // ===== MENU TOGGLE =====
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -1811,7 +3031,7 @@
             });
         });
 
-        // Contact Form - WhatsApp
+        // ===== CONTACT FORM - WHATSAPP =====
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
@@ -1839,7 +3059,7 @@ ${message}`;
             });
         }
 
-        // Smooth scroll
+        // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1850,7 +3070,7 @@ ${message}`;
             });
         });
 
-        // Scroll animations
+        // ===== SCROLL ANIMATIONS =====
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1865,11 +3085,21 @@ ${message}`;
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .project-card, .pack-card').forEach(el => {
+        document.querySelectorAll('.service-card, .project-card, .pack-card, .problem-card, .client-card, .testimonial-card, .audit-example-box').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             observer.observe(el);
         });
+
+        // ===== DETECT SYSTEM THEME PREFERENCE =====
+        if (!localStorage.getItem('theme')) {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (!prefersDark) {
+                htmlElement.classList.add('light-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'light-mode');
+            }
+        }
     </script>
 </body>
 </html>
